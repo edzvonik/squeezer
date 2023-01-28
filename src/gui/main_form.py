@@ -2,15 +2,18 @@ import tkinter as tk
 from tkinterdnd2 import DND_FILES, TkinterDnD
 
 class Main:
+
+    
+
     def __init__(self):
-        main = TkinterDnD.Tk()
-        main.minsize(450, 300)
+        self.__main = TkinterDnD.Tk()
+        self.__main.minsize(450, 300)
 
-        listbox = tk.Listbox(main)
-        listbox.insert(1, "Перенесите файлы для сжатия")
+        self.__listbox = tk.Listbox(__main)
+        self.__listbox.insert(1, "Перенесите файлы для сжатия")
 
-        listbox.drop_target_register(DND_FILES)
-        listbox.dnd_bind("<<Drop>>", lambda e : listbox.insert(tk.END, e.data))
-        listbox.pack(pady = 5)
+        self.__listbox.drop_target_register(DND_FILES)
+        self.__listbox.dnd_bind("<<Drop>>", lambda e : __listbox.insert(tk.END, e.data))
+        self.__listbox.pack(pady = 5)
 
-        main.mainloop()
+        self.__main.mainloop()
