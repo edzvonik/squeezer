@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
 from tkinterdnd2 import DND_FILES, TkinterDnD
+from pathlib import Path
 
 class Main:
     def __init__(self):
@@ -8,6 +9,9 @@ class Main:
         # Root
         self.root = TkinterDnD.Tk()
         self.root.title("Squeezer")
+        rootPath = Path(__file__).parent.parent.parent
+        iconPath = Path.joinpath(rootPath, "squeezer.png")
+        self.root.iconphoto(True, tk.PhotoImage(file=iconPath))
         width=460
         height=400
         screenwidth = self.root.winfo_screenwidth()

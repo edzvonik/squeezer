@@ -1,7 +1,6 @@
-from gui.main_form import Main
+from PIL import Image
 
-def main():
-    main = Main()
+class Squeezer:
 
-if __name__ == '__main__':
-    main()
+    def squeeze():
+        pass
