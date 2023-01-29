@@ -85,4 +85,9 @@ class Main:
     def add_paths(self, event):
         if (self.listbox.get(0) == "Перенесите сюда файлы для сжатия"):
             self.listbox.delete(0, "end")
-        self.listbox.insert("end", event.data)
+        
+        paths = event.data.split(" {")
+
+        for path in paths:
+            clearPath = path.replace("{", "").replace("}", "")
+            self.listbox.insert("end", clearPath)
