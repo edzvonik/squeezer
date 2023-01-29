@@ -2,6 +2,8 @@ import tkinter as tk
 import tkinter.font as tkFont
 from tkinterdnd2 import DND_FILES, TkinterDnD
 from pathlib import Path
+import squeezer as sq
+from PIL import Image
 
 class Main:
     def __init__(self):
@@ -62,8 +64,14 @@ class Main:
 
         self.root.mainloop()
 
-    def button_click(self):
-        print("Click!")
+    def button_click(self, ):
+        print("SQUUUEEEEZEEEE!")
+        paths = self.listbox.get(0, "end")
+
+        for path in paths:
+            im = Image.open(path)
+            sq.Squeezer.squeeze(im, path, sq.Squeezer.FILE_SIZE)
+
 
     def delete_button_click(self):
         selected_checkboxs = self.listbox.curselection()
