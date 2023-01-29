@@ -69,8 +69,9 @@ class Main:
         paths = self.listbox.get(0, "end")
 
         for path in paths:
-            im = Image.open(path)
-            sq.Squeezer.squeeze(im, path, sq.Squeezer.FILE_SIZE)
+            clearPath = path.replace("{", "").replace("}", "")
+            im = Image.open(clearPath)
+            sq.Squeezer.squeeze(im, clearPath, sq.Squeezer.FILE_SIZE)
 
 
     def delete_button_click(self):
